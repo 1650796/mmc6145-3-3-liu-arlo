@@ -79,10 +79,9 @@ export default function Search() {
                 key={book.id}
                 title={book.volumeInfo.title}
                 authors={book.volumeInfo.authors}
-                thumbnail={book.volumeInfo.imageLink?.thumbnail}
+                thumbnail={book.volumeInfo.imageLinks?.thumbnail}
                 previewLink={book.volumeInfo.previewLink}
               />
-
             ))}
           </div>
         : <NoResults
