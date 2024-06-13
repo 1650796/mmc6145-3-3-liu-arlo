@@ -46,7 +46,7 @@ export default function Search() {
   const inputRef = useRef()
   const inputDivRef = useRef()
 
-  return (
+  return ( 
     <main className={styles.search}>
       <h1>Book Search</h1>
       {/* TODO: add an onSubmit handler */}
@@ -74,6 +74,16 @@ export default function Search() {
         : bookSearchResults?.length
         ? <div className={styles.bookList}>
             {/* TODO: render BookPreview components for each search result here based on bookSearchResults */}
+            {bookSearchResults.map((book) => (
+              <BookPreview
+                key={book.id}
+                title={book.volumeInfo.title}
+                authors={book.volumeInfo.authors}
+                thumbnail={book.volumeInfo.imageLink?.thumbnail}
+                previewLink={book.volumeInfo.previewLink}
+              />
+
+            ))}
           </div>
         : <NoResults
           {...{inputRef, inputDivRef, previousQuery}}
